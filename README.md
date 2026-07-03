@@ -1,21 +1,21 @@
 # Nifty 100 Financial Intelligence Platform
 
-> Production-grade financial analytics platform built to transform raw financial statement data of 92 Nifty 100 companies into structured investment intelligence using ETL pipelines, SQL analytics, KPI engines, and interactive dashboards.
+> Production-grade financial analytics platform built to transform raw financial statement data of Nifty 100 companies into structured investment intelligence using ETL pipelines, KPI engines, SQL analytics, and interactive dashboards.
 
 ---
 
 ## Overview
 
-The Nifty 100 Financial Intelligence Platform is a comprehensive analytics system designed to process, validate, analyze, and visualize financial data across 92 Nifty 100 companies.
+The Nifty 100 Financial Intelligence Platform is a comprehensive analytics system designed to process, validate, analyze, and rank financial data across Nifty 100 companies.
 
-The platform transforms raw datasets into actionable investment intelligence through:
+The platform transforms raw financial datasets into actionable investment intelligence through:
 
 - ETL Pipelines  
 - Data Validation & Cleaning  
 - Financial KPI Computation  
 - Investment Screening  
-- Sector Analytics  
 - Financial Health Scoring  
+- Company Ranking  
 - Dashboard & Reporting  
 
 This project simulates an industry-grade financial intelligence platform similar to Screener, Tickertape, and institutional analytics systems.
@@ -25,28 +25,27 @@ This project simulates an industry-grade financial intelligence platform similar
 ## Key Features
 
 ### Data Engineering
-- ETL pipeline for 12 datasets
-- Automated data cleaning and normalization
-- Data quality validation framework
+- ETL pipeline for financial datasets
+- Automated normalization and cleaning
+- Data validation framework
 - SQLite database integration
 
 ### Financial Analytics
-- 50+ Financial KPIs
-- Revenue, profit & EPS growth analysis
-- Ratio computation (ROE, ROCE, OPM, D/E, CAGR)
-- Financial health scoring model
+- Financial Ratio Engine
+- 8+ KPI calculations
+- ROE, ROCE, OPM, Net Margin
+- Debt/Equity, EPS, Dividend Payout
+- Sales Growth Analytics
 
-### Intelligence Modules
+### Product Intelligence
 - Investment Screener
-- Sector Benchmarking
-- Peer Comparison
-- Cash Flow Intelligence
-- Trend Analytics
+- Financial Health Scoring
+- Company Ranking Engine
 
-### Visualization
+### Visualization (Upcoming)
 - Interactive Streamlit dashboard
-- Automated PDF reports
-- Excel exports
+- Analytics visualizations
+- Automated reporting
 
 ---
 
@@ -73,7 +72,13 @@ Data Validation & Cleaning
         ↓
 SQLite Database
         ↓
-Financial Analytics Engine
+Financial Ratio Engine
+        ↓
+Investment Screener
+        ↓
+Health Scoring Engine
+        ↓
+Ranking Engine
         ↓
 Dashboard / Reports
 ```
@@ -100,10 +105,20 @@ Dashboard / Reports
 
 ---
 
+## Current Database Tables
+
+- companies
+- profitandloss
+- balancesheet
+- cashflow
+- financial_ratios
+- company_rankings
+
+---
+
 ## Sprint Progress
 
 ### Sprint 1 — Foundation & ETL ✅
-
 Completed:
 - Project Setup
 - Excel Loader Engine
@@ -121,13 +136,43 @@ Modules Built:
 
 ---
 
-### Upcoming Sprints
+### Sprint 2 — Financial Ratio Engine ✅
+Completed:
+- Financial ratio computation engine
+- KPI calculations
+- Anomaly filtering
+- financial_ratios table creation
 
-- Sprint 2 → Financial Ratio Engine  
-- Sprint 3 → Screener & Financial Health Scoring  
-- Sprint 4 → Sector, Peer & Trend Analytics  
-- Sprint 5 → Dashboard & Reporting  
-- Sprint 6 → Testing & Final Delivery  
+KPIs Built:
+- ROE
+- ROCE
+- Debt/Equity
+- OPM
+- Net Margin
+- EPS
+- Dividend Payout
+- Sales Growth
+
+---
+
+### Sprint 3 — Screener & Health Scoring ✅
+Completed:
+- Investment screener
+- Financial health scoring model
+- Ranking engine
+- company_rankings table creation
+
+Features Built:
+- Custom stock filtering
+- Weighted health scoring
+- Company ranking system
+
+---
+
+### Upcoming Sprints
+- Sprint 4 → Sector & Peer Analytics
+- Sprint 5 → Dashboard & Reporting
+- Sprint 6 → Testing & Final Delivery
 
 ---
 
@@ -137,11 +182,8 @@ Modules Built:
 NIFTY100/
 │
 ├── src/
-│   └── etl/
-│       ├── loader.py
-│       ├── normalizer.py
-│       ├── validator.py
-│       └── database.py
+│   ├── etl/
+│   └── analytics/
 │
 ├── tests/
 ├── data/
@@ -157,15 +199,15 @@ NIFTY100/
 
 ## Project Status
 
-Current Stage: Sprint 1 Completed  
-Build Progress: 20%  
+Current Stage: Sprint 3 Completed  
+Build Progress: 65–70%
 
-Core ETL and database foundation completed successfully.
+Core backend, analytics, and product intelligence modules completed successfully.
 
 ---
 
 ## Author
 
-### Aashaan Gaigole
+### Aashaan Gaigole  
 **Data Analytics**  
 Building data-driven business systems.
