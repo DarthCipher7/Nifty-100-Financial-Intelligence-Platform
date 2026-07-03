@@ -8,6 +8,8 @@ BASE_PATH = Path("data/raw")
 files = {
     "companies": BASE_PATH / "companies.xlsx",
     "profitandloss": BASE_PATH / "profitandloss.xlsx",
+    "balancesheet": BASE_PATH / "balancesheet.xlsx",
+    "cashflow": BASE_PATH / "cashflow.xlsx",
 }
 
 
@@ -38,19 +40,32 @@ if __name__ == "__main__":
 
     companies = datasets["companies"]
     pl = datasets["profitandloss"]
+    bs = datasets["balancesheet"]
+    cf = datasets["cashflow"]
 
+    # Remove duplicate company-year rows
     pl = pl.drop_duplicates(subset=["company_id", "year"], keep="first")
+    bs = bs.drop_duplicates(subset=["company_id", "year"], keep="first")
+    cf = cf.drop_duplicates(subset=["company_id", "year"], keep="first")
+
     valid_ids = set(companies["id"])
+
     pl = pl[pl["company_id"].isin(valid_ids)]
+    bs = bs[bs["company_id"].isin(valid_ids)]
+    cf = cf[cf["company_id"].isin(valid_ids)]
 
     conn = create_connection()
 
     companies.to_sql("companies", conn, if_exists="replace", index=False)
     pl.to_sql("profitandloss", conn, if_exists="replace", index=False)
+    bs.to_sql("balancesheet", conn, if_exists="replace", index=False)
+    cf.to_sql("cashflow", conn, if_exists="replace", index=False)
 
     conn.close()
 
-    print("\nDatabase created successfully!")
+    print("\nDatabase updated successfully!")
     print("Tables loaded:")
     print("- companies")
     print("- profitandloss")
+    print("- balancesheet")
+    print("- cashflow")
